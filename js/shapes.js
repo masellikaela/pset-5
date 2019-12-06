@@ -26,16 +26,50 @@ window.onload = function() {
  */
 
 const sayHello = function() {
-    // write your exercise 1 code here
-};
+    
+   let message = prompt("Message:");
+   while (message.length >= 50){
+     alert("Your message is too long. Please keep your message under 50 characters.");
+     message = prompt("Message:")
+   }
+     const canvas = document.getElementById('student-canvas-1');
+     const format = theCanvas.getContext('2d');
+     format.font = '48px sans-serif';
+     /// is this needed?? format.clearRect(0, 0, canvas.width, canvas.height);
+     format.strokeText(message, 30, 70, // why add this number--- 994);};
 
 /*
  * Exercise 2.
  */
 
-const drawRectangle = function() {
-    // write your exercise 2 code here
-};
+const rectangle = function() {
+    let width = prompt("Width: ");
+    let height = prompt("Height: ");
+    let x = prompt("X: ");
+    let y = prompt("Y: ");
+    while (width < 1 || width > 1024)  {
+      alert("Your width must be between 1 and 1024.")
+      width = prompt("Width: ");
+    }
+    while (height < 1 || height > 1024)  {
+      alert("Your height must be between 1 and 1024. ")
+      height = prompt("Height: ");
+    }
+
+    while (x < 1 || x > 1024)  {
+      alert("Your x-coordinate must be between 1 and 1024. ")
+      x = prompt("X: ");
+    }
+
+    while (y < 1 || y > 1024)  {
+      alert("Your y-coordinate must be between 1 and 1024. ")
+      y = prompt("Y: ");
+    }
+
+    const canvas = document.getElementById('student-canvas-2');
+    const format = canvas.getContext('2d');
+    format.clearRect(0, 0, canvas.width, canvas.height);
+    format.strokeText(x, y, width, height);};
 
 /*
  * Exercise 3.
@@ -43,6 +77,35 @@ const drawRectangle = function() {
 
 const drawColoredRectangle = function() {
     // write your exercise 3 code here
+    
+    // similar to exercise two exept use a fill-stroke??  ---- IF they have the same requirements and stuff
+    
+    
+    const rectangle = function() {
+    let width = prompt("Width: ");
+    let height = prompt("Height: ");
+    let x = prompt("X: ");
+    let y = prompt("Y: ");
+    while (width < 1 || width > 1024)  {
+      alert("Your width must be between 1 and 1024.")
+      width = prompt("Width: ");
+    }
+    while (height < 1 || height > 1024)  {
+      alert("Your height must be between 1 and 1024. ")
+      height = prompt("Height: ");
+    }
+    while (x < 1 || x > 1024)  {
+      alert("Your x-coordinate must be between 1 and 1024. ")
+      x = prompt("X: ");
+    }
+    while (y < 1 || y > 1024)  {
+      alert("Your y-coordinate must be between 1 and 1024. ")
+      y = prompt("Y: ");
+    }
+    const canvas = document.getElementById('student-canvas-2');
+    const format = canvas.getContext('2d');
+    format.clearRect(0, 0, canvas.width, canvas.height);
+    format.fillText(x, y, width, height);};
 };
 
 /*
