@@ -76,36 +76,14 @@ const rectangle = function() {
  */
 
 const drawColoredRectangle = function() {
-    // write your exercise 3 code here
-    
-    // similar to exercise two exept use a fill-stroke??  ---- IF they have the same requirements and stuff
-    
-    
-    const rectangle = function() {
-    let width = prompt("Width: ");
-    let height = prompt("Height: ");
-    let x = prompt("X: ");
-    let y = prompt("Y: ");
-    while (width < 1 || width > 1024)  {
-      alert("Your width must be between 1 and 1024.")
-      width = prompt("Width: ");
+  let color = prompt("Message:"); 
+     
+     while (color !== Black // or sumn
     }
-    while (height < 1 || height > 1024)  {
-      alert("Your height must be between 1 and 1024. ")
-      height = prompt("Height: ");
-    }
-    while (x < 1 || x > 1024)  {
-      alert("Your x-coordinate must be between 1 and 1024. ")
-      x = prompt("X: ");
-    }
-    while (y < 1 || y > 1024)  {
-      alert("Your y-coordinate must be between 1 and 1024. ")
-      y = prompt("Y: ");
-    }
-    const canvas = document.getElementById('student-canvas-2');
-    const format = canvas.getContext('2d');
-    format.clearRect(0, 0, canvas.width, canvas.height);
-    format.fillText(x, y, width, height);};
+      const canvas = document.getElementById('student-canvas-3');
+      const ctx = canvas.getContext('2d');
+      ctx.fillStyle = 'green';
+      ctx.fillRect(10, 10, 100, 50);
 };
 
 /*
