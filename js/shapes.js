@@ -35,7 +35,7 @@ const sayHello = function() {
      const canvas = document.getElementById('student-canvas-1');
      const format = theCanvas.getContext('2d');
      format.font = '48px sans-serif';
-     /// is this needed?? format.clearRect(0, 0, canvas.width, canvas.height);
+     format.clearRect(0, 0, canvas.width, canvas.height);
      format.strokeText(message, 30, 70, // why add this number--- 994);};
 
 /*
@@ -55,17 +55,14 @@ const rectangle = function() {
       alert("Your height must be between 1 and 1024. ")
       height = prompt("Height: ");
     }
-
     while (x < 1 || x > 1024)  {
       alert("Your x-coordinate must be between 1 and 1024. ")
       x = prompt("X: ");
     }
-
     while (y < 1 || y > 1024)  {
       alert("Your y-coordinate must be between 1 and 1024. ")
       y = prompt("Y: ");
     }
-
     const canvas = document.getElementById('student-canvas-2');
     const format = canvas.getContext('2d');
     format.clearRect(0, 0, canvas.width, canvas.height);
@@ -77,21 +74,33 @@ const rectangle = function() {
 
 const drawColoredRectangle = function() {
   let color = prompt("Message:"); 
-     
-     while (color !== Black // or sumn
+     while (color !== Black || color!== black || color!== Blue || color!== blue || color!== Green || color!== green || color!== Orange || color!== orange || color!== Purple || color!== purple || color!== Red || color !== red || color!== Yellow || color!== yellow){
+            
+        const canvas = document.getElementById('student-canvas-3');
+        const ctx = canvas.getContext('2d');
+        ctx.fillStyle = color;
+        ctx.fillRect(10, 10, 100, 50);
+            
+            }
     }
-      const canvas = document.getElementById('student-canvas-3');
-      const ctx = canvas.getContext('2d');
-      ctx.fillStyle = 'green';
-      ctx.fillRect(10, 10, 100, 50);
+     
 };
 
 /*
  * Exercise 4.
  */
 
-const drawTriangle = function() {
-    // write your exercise 4 code here
+//what even const drawTriangle = function() {
+     var canvas = document.getElementById('sample-canvas-4');
+        if (canvas.getContext) {
+        var ctx = canvas.getContext('2d');        
+        ctx.beginPath();
+        ctx.moveTo(125, 125);
+        ctx.lineTo(125, 45);
+        ctx.lineTo(45, 125);
+        ctx.closePath();
+        ctx.stroke();
+        }
 };
 
 /*
@@ -99,7 +108,25 @@ const drawTriangle = function() {
  */
 
 const drawFace = function() {
-    // write your exercise 4 code here
+   let radius = prompt("Message") 
+    radius = Number(prompt("Message"));
+    
+    while (radius > 32 || radius < (canvas.height/2) {
+    
+ var canvas = document.getElementById('sample-canvas-5');
+  if (canvas.getContext) {
+     var ctx = canvas.getContext('2d');
+    ctx.beginPath();
+    ctx.arc(75, 75, 50, 0, Math.PI * 2, true); // Outer circle
+    ctx.moveTo(110, 75);
+    ctx.arc(75, 75, 35, 0, Math.PI, false);  // Mouth (clockwise)
+    ctx.moveTo(65, 65);
+    ctx.arc(60, 65, 5, 0, Math.PI * 2, true);  // Left eye
+    ctx.moveTo(95, 65);
+    ctx.arc(90, 65, 5, 0, Math.PI * 2, true);  // Right eye
+    ctx.stroke();
+  }
+ }
 };
 
 /*
