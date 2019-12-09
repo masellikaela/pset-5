@@ -24,34 +24,85 @@ window.onload = function() {
 // one
 
 const sayHello = function() {
-let message= prompt("message")
-let name = window.prompt();
-while(name.length < 50){
-      const ctx = document.getElementById('student-canvas-1').getContext('2d');
-      ctx.font = '48px sans-serif';
-      ctx.strokeText( 30, 50, 70, 50)
-  }
-let message= prompt("message")
-if (message.length > 50)
-let alert = ("alert")
-alert = alert("The message text cannot exceed 50 characters.")
+    const drawing = document.getElementById("student-canvas-1").getContext("2d");
+    let message = prompt("Message:");
 
-};
+    if (message !== null) {
+      while (message.length > 50) {
+        alert("Your message is too long. Keep it under 50 characters.");
+        message = window.prompt("Message: ");
+
+        if (message === null) {  // hits cancel
+          break;
+        }
+      }
+    }
+
+    drawing.clearRect(0, 0, 1024, 128);
+
+    if (message !== null) {
+      drawing.font = "48px sans-serif";
+      drawing.strokeText(message, 30, 70, 994);
+    }
+  };
 
 /*
  * Exercise 2.
  */
 
-const drawRectangle = function() {
-    // write your exercise 2 code here
-};
+const rectangle = function() {
+  const canvas = document.getElementById('student-canvas-2').getContext('2d');
+    let width = prompt("Width: ");
+    let height = prompt("Height: ");
+    let x = prompt("X: ");
+    let y = prompt("Y: ");
+
+    if (message !== null) {
+    while (width < 1 || width > 1024)  {
+      alert("Your width must be between 1 and 1024.")
+      width = prompt("Width: ");
+    }
+    while (height < 1 || height > 512)  {
+      alert("Your height must be between 1 and 1024.")
+      height = prompt("Height: ");
+    }
+    while (x < 1 || x > 1024)  {
+      alert("Your x-coordinate must be between 1 and 1024.")
+      x = prompt("X: ");
+    }
+    while (y < 1 || y > 512)  {
+      alert("Your y-coordinate must be between 1 and 1024.")
+      y = prompt("Y: ");
+    }
+        if (Number.isNaN(message)){
+          alert("One of your values is not a number.")
+        }
+  }
+
+
+    if (message === null) {  // hits cancel
+      break;
+    }
+    drawing.clearRect(0, 0, 1024, 128);
+
+    format.clearRect(x, y, 1024, 512);
+    format.strokeText(x, y, width, height);
+  };
 
 /*
  * Exercise 3.
  */
 
 const drawColoredRectangle = function() {
-    // write your exercise 3 code here
+  let color = prompt("Message:");
+     while (color !== Black || color!== black || color!== Blue || color!== blue || color!== Green || color!== green || color!== Orange || color!== orange || color!== Purple || color!== purple || color!== Red || color !== red || color!== Yellow || color!== yellow){
+
+        const canvas = document.getElementById('student-canvas-3');
+        const ctx = canvas.getContext('2d');
+        ctx.fillStyle = color;
+        ctx.fillRect(10, 10, 100, 50);
+
+       }
 };
 
 /*
@@ -59,7 +110,16 @@ const drawColoredRectangle = function() {
  */
 
 const drawTriangle = function() {
-    // write your exercise 4 code here
+     var canvas = document.getElementById('sample-canvas-4');
+        if (canvas.getContext) {
+        var ctx = canvas.getContext('2d');
+        ctx.beginPath();
+        ctx.moveTo(125, 125);
+        ctx.lineTo(125, 45);
+        ctx.lineTo(45, 125);
+        ctx.closePath();
+        ctx.stroke();
+        }
 };
 
 /*
@@ -67,7 +127,25 @@ const drawTriangle = function() {
  */
 
 const drawFace = function() {
-    // write your exercise 4 code here
+   let radius = prompt("Message")
+    radius = Number(prompt("Message"));
+
+    while (radius > 32 || radius < (canvas.height/2)) {
+
+ var canvas = document.getElementById('sample-canvas-5');
+  if (canvas.getContext) {
+     var ctx = canvas.getContext('2d');
+    ctx.beginPath();
+    ctx.arc(75, 75, 50, 0, Math.PI * 2, true); // Outer circle
+    ctx.moveTo(110, 75);
+    ctx.arc(75, 75, 35, 0, Math.PI, false);  // Mouth (clockwise)
+    ctx.moveTo(65, 65);
+    ctx.arc(60, 65, 5, 0, Math.PI * 2, true);  // Left eye
+    ctx.moveTo(95, 65);
+    ctx.arc(90, 65, 5, 0, Math.PI * 2, true);  // Right eye
+    ctx.stroke();
+  }
+ }
 };
 
 /*
