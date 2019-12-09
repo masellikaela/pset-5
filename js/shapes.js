@@ -21,12 +21,21 @@ window.onload = function() {
     document.getElementById("hello").onclick = sayHello;
 }
 
-/*
- * Exercise 1.
- */
+// one
 
 const sayHello = function() {
-    // write your exercise 1 code here
+let message= prompt("message")
+let name = window.prompt();
+while(name.length < 50){
+      const ctx = document.getElementById('student-canvas-1').getContext('2d');
+      ctx.font = '48px sans-serif';
+      ctx.strokeText( 30, 50, 70, 50)
+  }
+let message= prompt("message")
+if (message.length > 50)
+let alert = ("alert")
+alert = alert("The message text cannot exceed 50 characters.")
+
 };
 
 /*
