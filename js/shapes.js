@@ -50,55 +50,68 @@ const sayHello = function() {
  * Exercise 2.
  */
 
-const rectangle = function() {
-  const canvas = document.getElementById('student-canvas-2').getContext('2d');
-    let width = prompt("Width: ");
-    let height = prompt("Height: ");
-    let x = prompt("X: ");
-    let y = prompt("Y: ");
-
-    if (message !== null) {
-    while (width < 1 || width > 1024)  {
-      alert("Your width must be between 1 and 1024.")
-      width = prompt("Width: ");
-    }
-    while (height < 1 || height > 512)  {
-      alert("Your height must be between 1 and 1024.")
-      height = prompt("Height: ");
-    }
-    while (x < 1 || x > 1024)  {
-      alert("Your x-coordinate must be between 1 and 1024.")
-      x = prompt("X: ");
-    }
-    while (y < 1 || y > 512)  {
-      alert("Your y-coordinate must be between 1 and 1024.")
-      y = prompt("Y: ");
-    }
-        if (Number.isNaN(message)){
-          alert("One of your values is not a number.")
+ const drawRectangle = function() {
+     const canvas = document.getElementById('student-canvas-2');
+     const ctx = canvas.getContext('2d');
+     ctx.clearRect(0, 0, canvas.width, canvas.height);
+  
+     
+ if (message === null) {  //does this belong here???????
+          break;
         }
-  }
-
-
-    if (message === null) {  // hits cancel
-      break;
-    }
     drawing.clearRect(0, 0, 1024, 128);
 
-    format.clearRect(x, y, 1024, 512);
-    format.strokeText(x, y, width, height);
-  };
+ if (message !== null) {
+   do {
+    let width = prompt("Width: ")
+    if (width == null) { // do i need to break bc it still asks questions even if you press cancel???
+      break;
+    }
+    let height = prompt("Height: ")
+    if (height == null) {
+      break;
+    }
+    let x = prompt("X: ")
+    if (x == null) {
+      break;
+   }
+    let y = prompt("Y: ")
+    if (y == null) {
+      break;// do i need any of these if statements??
+   }
+    if (width > 1024 || width < 1) {
+      alert("Your width must be between 1 and 1024.") 
+    }
+    if (height > 512 || height < 1) {
+      alert("Your height must be between 1 and 512.")
+    }
+    if (x < 1 || x > 1024) {
+      alert("Your x-coordinate must be between 1 and 1024.")
+    }
+    if (y < 1 || y > 512) {
+      alert("Your y-coordinate must be between 1 and 512.")
+    }
+    if (isNaN(width) || isNaN(height) || isNaN(x) || isNaN(y)) {
+      alert("One of your values is not a number.")
+    } else {
+        while (width > 1024 || width < 1 || height > 512 || height < 1 || x < 1 || x > 1024 || y < 1 || y > 512 || isNaN(width) || isNaN(height) || isNaN(x) || isNaN(y))
+
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.strokeRect(x, y, width, height);
+    }
+  }
+};
 
 /*
  * Exercise 3.
  */
 
 const drawColoredRectangle = function() {
-  let color = prompt("Message:");
-     while (color !== Black || color!== black || color!== Blue || color!== blue || color!== Green || color!== green || color!== Orange || color!== orange || color!== Purple || color!== purple || color!== Red || color !== red || color!== Yellow || color!== yellow){
-
-        const canvas = document.getElementById('student-canvas-3');
-        const ctx = canvas.getContext('2d');
+   const canvas = document.getElementById('student-canvas-3');
+   const ctx = canvas.getContext('2d');
+   let color = prompt("Color:");// see sample for correct questions
+    
+    while (color !== Black || color!== black || color!== Blue || color!== blue || color!== Green || color!== green || color!== Orange || color!== orange || color!== Purple || color!== purple || color!== Red || color !== red || color!== Yellow || color!== yellow){
         ctx.fillStyle = color;
         ctx.fillRect(10, 10, 100, 50);
 
@@ -110,16 +123,29 @@ const drawColoredRectangle = function() {
  */
 
 const drawTriangle = function() {
-     var canvas = document.getElementById('sample-canvas-4');
-        if (canvas.getContext) {
-        var ctx = canvas.getContext('2d');
-        ctx.beginPath();
-        ctx.moveTo(125, 125);
+const canvas = document.getElementById('sample-canvas-4');
+const ctx= canvas.getContext('2d');
+       let shortSide = prompt("Shortest Side: ");
+       let longSide = prompt("Longest Side: ");
+       let remainSide = prompt("Remaining Side: ");
+   
+    if ( Number.isNaN(shortSide) ||  Number.isNaN(longSide) ||  Number.isNaN(remainSide)){
+        // write the prompt thats in the sample
+    }
+    
+    shortSide = height
+    longSide = hypotenuse
+    remainSide = base
+    
+    while (
+        /*ctx.beginPath();
+        ctx.moveTo(25, 25);
         ctx.lineTo(125, 45);
         ctx.lineTo(45, 125);
         ctx.closePath();
         ctx.stroke();
         }
+        */
 };
 
 /*
@@ -127,15 +153,17 @@ const drawTriangle = function() {
  */
 
 const drawFace = function() {
-   let radius = prompt("Message")
-    radius = Number(prompt("Message"));
-
+const canvas = document.getElementById('sample-canvas-5');
+const ctx = canvas.getContext('2d');   
+let radius = prompt("Message: ");    
+   do {
+       radius = prompt("Message"); /// make it beautiful code???
+   }  
     while (radius > 32 || radius < (canvas.height/2)) {
-
- var canvas = document.getElementById('sample-canvas-5');
-  if (canvas.getContext) {
-     var ctx = canvas.getContext('2d');
-    ctx.beginPath();
+          if (Number.isNaN(radius)){
+            alert(/// i literally do not know what the question is )
+                } 
+    ctx.beginPath();/// these are the wrong numbers 
     ctx.arc(75, 75, 50, 0, Math.PI * 2, true); // Outer circle
     ctx.moveTo(110, 75);
     ctx.arc(75, 75, 35, 0, Math.PI, false);  // Mouth (clockwise)
@@ -144,14 +172,11 @@ const drawFace = function() {
     ctx.moveTo(95, 65);
     ctx.arc(90, 65, 5, 0, Math.PI * 2, true);  // Right eye
     ctx.stroke();
-  }
- }
+              radius = prompt("Radius: )
+      }      
+   }
 };
 
 /*
  * Exercise 6 (extra credit).
  */
-
-const drawPyramid = function() {
-    // write your exercise 5 code here
-};
