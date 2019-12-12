@@ -204,15 +204,27 @@ const drawFace = function() {
     } else if (radius > (canvas.height/2)){
       alert("Your smiley face won't fit on the canvas.")
     }
-  ctx.beginPath();/// these are the wrong numbers
-  ctx.arc(x, y, radius, startAngle, endAngle, anticlockwise); // Outer circle
-  ctx.moveTo(110, 75);
-  ctx.arc(75, 75, 35, 0, Math.PI, false);  // Mouth (clockwise)
-  ctx.moveTo(65, 65);
-  ctx.arc(60, 65, 5, 0, Math.PI * 2, true);  // Left eye
-  ctx.moveTo(95, 65);
-  ctx.arc(90, 65, 5, 0, Math.PI * 2, true);  // Right eye
+    let eyes = 0.15 * radius
+    let mouth = 0.7 * radius
+
+
+  ctx.beginPath();
+  ctx.arc(512, 256, radius, 0, 2 * Math.PI);
   ctx.stroke();
+  ctx.closePath();
+  ctx.beginPath();
+  ctx.arc(512, 256, mouth, 0, Math.PI);
+  ctx.stroke();
+  ctx.closePath();
+  ctx.beginPath();
+  ctx.arc(512 - 0.4 * radius, 256 - 0.4 * radius, eyes, 0, 2 * Math.PI);
+  ctx.stroke();
+  ctx.closePath();
+  ctx.beginPath();
+  ctx.arc(512 + 0.4 * radius, 256 - 0.4* radius, eyes, 0, 2 * Math.PI);
+  ctx.stroke();
+  ctx.closePath();
+};
               radius = prompt("Radius: )
        }
     }
