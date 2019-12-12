@@ -158,33 +158,43 @@ const drawColoredRectangle = function() {
 const drawTriangle = function() {
   const canvas = document.getElementById('sample-canvas-4');
   const ctx = canvas.getContext('2d');
-  let shortSide = prompt("Side 1: ");
-  let remainSide = prompt("Side 2: ");
-  let longSide = prompt("Side 3: ");
-if (longSide !== null){
-  while (isNaN(shortSide) || isNaN(longSide) || isNaN(remainSide)) {
-    alert("One of your sides is not a number.");
-    shortSide = prompt("Side 1: ");
-    remainSide = prompt("Side 2: ");
-    longSide = prompt("Side 3: ");
-  }
-    if ((Math.squared(shortSide) + (Math.squared(remainSide) = longSide){
-      ctx.beginPath();
-      ctx.moveTo(25, 25);
-      ctx.lineTo(25, shortSide + 25 );
-      ctx.lineTo(shortside + 25, longside + 25 );
-      ctx.closePath();
-      ctx.stroke();
-    } else {
-      alert(".")
+  let side1,side2,side3
+
+  do {
+    side1 = prompt("Side 1: ")
+    side2 = prompt("Side 2: ")
+    side3 = prompt("Side 3: ")
+
+    let height = Math.min (side1, side2, side3)
+    let hypotenuse = Math.max(side1, side2, side3)
+    let base = Math.sqrt(hypotenuse*hypotenuse - height*height)
+
+    if (base == 0 && height == 0 && hypotenuse == 0) {
+      break;
     }
+    side1 = Number(side1)
+    side2 = Number(side2)
+    side3 = Number(side3)
+    if (base*base + height*height != hypotenuse*hypotenuse || base == 0 || height == 0 || hypotenuse == 0  || side1+side2+side3-hypotenuse-height != base) {
+      alert("That's not a valid right triangle.")
+    }
+    if (isNaN(side1) || isNaN(side2) || isNaN(side3)) {
+      alert("One of your sides is not a number.")
+    }
+    if (base > 1024 || height > 512 || hypotenuse > 1310720) {
+      alert("Your triangle won't fit on the canvas.")
+    }
+  }  while ((Math.floor(base)*Math.floor(base) + height*height != hypotenuse*hypotenuse) || isNaN(side1) || isNaN(side2) || isNaN(side3) || base > 1024 || height > 512 || hypotenuse > 1310720 || base == 0 || height == 0 || hypotenuse == 0)
 
-
-} else {
-   ctx.clearRect(0, 0, 1024, 128)
-}
-
-};
+  if ((base*base + height*height == hypotenuse*hypotenuse) && (base < 1024 && height < 512 && hypotenuse < 1145) && (base != 0 && height != 0 && hypotenuse != 0) && (base != null && height != null && hypotenuse != null)) {
+    height = height + 25
+    base = base + 25
+    ctx.beginPath();
+    ctx.moveTo(25, 25);
+    ctx.lineTo(25, height);
+    ctx.lineTo(base, height)
+    ctx.lineTo(25, 25)
+    ctx.stroke();
 
 /*
  * Exercise 5.
@@ -207,7 +217,6 @@ const drawFace = function() {
     let eyes = 0.15 * radius
     let mouth = 0.7 * radius
 
-
   ctx.beginPath();
   ctx.arc(512, 256, radius, 0, 2 * Math.PI);
   ctx.stroke();
@@ -224,10 +233,6 @@ const drawFace = function() {
   ctx.arc(512 + 0.4 * radius, 256 - 0.4* radius, eyes, 0, 2 * Math.PI);
   ctx.stroke();
   ctx.closePath();
-};
-              radius = prompt("Radius: )
-       }
-    }
 };
 
 /*
