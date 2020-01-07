@@ -5,13 +5,12 @@ window.onload = function() {
     document.getElementById("triangle-sample").onclick = drawTriangleStaff;
     document.getElementById("smile-sample").onclick = drawFaceStaff;
     document.getElementById("pyramid-sample").onclick = drawPyramidStaff;
-
+    
     document.getElementById("hello").onclick = sayHello;
     document.getElementById("rectangle").onclick = drawRectangle;
     document.getElementById("color").onclick = drawColoredRectangle;
-    document.getElementById("triangle").onclick =  drawTriangle;
+    document.getElementById("triangle").onclick = drawTriangle;
     document.getElementById("face").onclick = drawFace;
-
 }
 
 // one
